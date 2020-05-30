@@ -22,13 +22,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                <a class="nav-link" href="#">Covid-19 <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="index.html">Covid-19 <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="quienessomos.html">¿Quiénes somos?</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">Puebla</a>
+                <a class="nav-link" href="puebla.html">Puebla</a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="#">Estados</a>
@@ -48,55 +48,110 @@
         </nav> 
           <div class="row pt-5">
               <div class="col-md-9 " style=" border-right: 3px solid#2980B9  ;">
-                  <div class="row">
-                      <div class="col-md-6">
-                        <h1 style="font-family: 'Tinos', serif;" class="pt-2 pb-2  " >COVID-19</h1>
-                        <p class="text-justify">Los coronavirus son una familia de virus que causan enfermedades (desde el resfriado común hasta enfermedades respiratorias más graves) y circulan entre humanos y animales.</p>
-                        <p class="text-justify">En este caso, se trata del SARS-COV2. Apareció en China en diciembre pasado y provoca una enfermedad llamada COVID-19, que se extendió por el mundo y fue declarada pandemia global por la Organización Mundial de la Salud.</p>        
+                <div id="accordion">
+                  <div class="card">
+                    <div class="card-header" id="headingOne">
+                      <h1 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Covid-19
+                        </button>
+                      </h1>
+                    </div>
+                
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                      <div class="card-body">
+                          <p class="text-justify">Los coronavirus son una familia de virus que causan enfermedades (desde el resfriado común hasta enfermedades respiratorias más graves) y circulan entre humanos y animales.</p>
+                          <p class="text-justify">En este caso, se trata del SARS-COV2. Apareció en China en diciembre pasado y provoca una enfermedad llamada COVID-19, que se extendió por el mundo y fue declarada pandemia global por la Organización Mundial de la Salud.</p>        
                       </div>
-                       <div class="col-md-6">
-                        <h4 style="font-family: 'Tinos', serif;" class="pt-2 pb-2  ">¿CUÁLES SON LOS SÍNTOMAS  DEL CORONAVIRUS?</h4>
-                        <ul>
-                            <li>Fiebre</li>
-                            <li>Tos, Estornudos</li>
-                            <li>Malestar general</li>
-                            <li>Dolor de cabeza</li>
-                            <li>Dificultades para respirar</li>
-                        </ul>
-                      </div>
+                    </div>
                   </div>
-                  <div class="row">
-                    <div class="col-md-6">
-                        <h4 style="font-family: 'Tinos', serif;" class="pt-2 pb-2  ">¿CÓMO SE TRANSMITE?</h4>
+                  <div class="card">
+                    <div class="card-header" id="headingTwo">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          ¿CUÁLES SON LOS SÍNTOMAS  DEL CORONAVIRUS?
+                        </button>
+                      </h5>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                      <div class="card-body">
+                        <ul>
+                          <li>Fiebre</li>
+                          <li>Tos, Estornudos</li>
+                          <li>Malestar general</li>
+                          <li>Dolor de cabeza</li>
+                          <li>Dificultades para respirar</li>
+                      </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header" id="headingThree">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          ¿CÓMO SE TRANSMITE?
+                        </button>
+                      </h5>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                      <div class="card-body">
                         <p class="text-justify">El virus puede haberse transmitido originalmente por contacto directo entre animales y humanos (zoonosis), simplemente por el aire.</p>
                         <p class="text-justify">Los coronavirus humanos se transmiten de una persona infectada a otras:</p>
                         <ul>
-                            <li>a través del aire al toser y estornudar</li>
-                            <li>al tocar o estrechar la mano de una persona enferma</li>
-                            <li>al tocar un objeto o superficie contaminada con el virus y luego llevarse las manos sucias a boca, nariz u ojos.</li>
+                            <li>A través del aire al toser y estornudar</li>
+                            <li>Al tocar o estrechar la mano de una persona enferma</li>
+                            <li>Al tocar un objeto o superficie contaminada con el virus y luego llevarse las manos sucias a boca, nariz u ojos.</li>
                         </ul>
+                      </div>
                     </div>
-                     <div class="col-md-6">
-                        <h4 style="font-family: 'Tinos', serif;" class="pt-2 pb-2   ">EVITA</h4>
+                  </div>
+                  <div class="card">
+                    <div class="card-header" id="headingFour">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                          EVITA
+                        </button>
+                      </h5>
+                    </div>
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                      <div class="card-body">
                         <ul>
-                            <li>Saludar de mano, beso, abrazo.</li>
-                            <li>Automedicarte</li>
-                            <li>Escupir</li>
-                            <li>Tocarte la cara con las manos sucias</li>
+                          <li>Saludar de mano, beso, abrazo.</li>
+                          <li>Automedicarte</li>
+                          <li>Escupir</li>
+                          <li>Tocarte la cara con las manos sucias</li>
                         </ul> 
+                      </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <h4 style="font-family: 'Tinos', serif;" class="pt-2 pb-2  ">TRATAMIENTO</h4>
+                  </div>
+                  <div class="card">
+                    <div class="card-header" id="headingFive">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                          TRATAMIENTO
+                        </button>
+                      </h5>
+                    </div>
+                    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+                      <div class="card-body">
                         <p class="text-justify">No existe medicamento que cure los coronavirus, solo para aliviar los síntomas.</p>
                         <p class="text-justify">El virus que causa COVID-19 es muy nuevo, y no hay vacuna.</p>
                         <p class="text-justify">En la mayor parte de los casos, la enfermedad no es grave y el cuerpo la controla en alrededor de dos semanas. Sin embargo, para los integrantes de grupos de riesgo cualquier enfermedad respiratoria puede ser peligrosa.</p>
                         <p class="text-justify">En cualquier caso, hay que acudir al médico lo antes posible.</p>
-                        <p class="text-justify text-danger">Y recuerda: no debes automedicarte.</p>
+                        
+                      </div>
                     </div>
-                     <div class="col-md-6">
-                        <h4 style="font-family: 'Tinos', serif;" class="pt-2 pb-2  ">CUIDADOS PARA EL ENFERMO</h4>
+                  </div>
+                  <div class="card">
+                    <div class="card-header" id="headingSix">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                          CUIDADOS PARA EL ENFERMO
+                        </button>
+                      </h5>
+                    </div>
+                    <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+                      <div class="card-body">
                         <p class="text-justify">En caso de presentar síntomas, además de acudir al médico para diagnóstico y tratamiento, hay que hacer esto:</p>
                         <ul>
                             <li>No automedicarse.</li>
@@ -107,13 +162,16 @@
                             <li>Comer verduras y frutas y tomar al menos ocho vasos de agua simple.</li>
                             <li>Lavar vasos y cubiertos con agua, jabón y cloro.</li>
                         </ul>
+                      </div>
                     </div>
+                  </div>
                 </div>
+                <p class="text-justify text-danger">RECUERDA: no debes automedicarte.</p>
               </div>
               <div class="col-md-3">
                 <h4 class="pt-3 font-weight-bold">Ultimas noticias:</h4>
                     <div class="overflow-auto">
-                        <a class="twitter-timeline" data-height="1000" href="https://twitter.com/HLGatell?ref_src=twsrc%5Etfw">Tweets by HLGatell</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                        <a class="twitter-timeline" data-height="650" href="https://twitter.com/HLGatell?ref_src=twsrc%5Etfw">Tweets by HLGatell</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                     </div>
               </div>
           </div>
