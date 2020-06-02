@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Puebla</title>
+    <title>Estados</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap4-toggle.min.css">
     <link  id="estilo" rel="stylesheet" href="css/estilo.css">
-    <meta name="title" content="">
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <meta name="description" content="Sistema Inteligente y Ciberseguridad">
     <link href="https://fonts.googleapis.com/css2?family=Tinos:wght@700&display=swap" rel="stylesheet">
+ 
 </head>
 <body>
     <h1 style="font-family: 'Tinos', serif;" class="text-justify text-center pt-3 text-uppercase ">Sistema inteligente y Ciberseguridad</h1>
@@ -24,13 +25,13 @@
                 <li class="nav-item">
                 <a class="nav-link" href="index.html">Covid-19 <span class="sr-only">(current)</span></a>
                 </li>
+                <li class="nav-item ">
+                <a class="nav-link" href="#">¿Quiénes somos?</a>
+                </li>
                 <li class="nav-item">
-                <a class="nav-link" href="quienessomos.html">¿Quiénes somos?</a>
+                <a class="nav-link" href="#">Puebla</a>
                 </li>
                 <li class="nav-item active">
-                <a class="nav-link" href="puebla.html">Puebla</a>
-                </li>
-                <li class="nav-item">
                 <a class="nav-link" href="#">Estados</a>
                 </li>
                 <li class="nav-item">
@@ -47,8 +48,46 @@
             </div>
         </nav> 
           <div class="row pt-5">
-              <div class="col-md-9 " style=" border-right: 3px solid#2980B9  ;">
-                 
+            <div class="col-md-9 " style=" border-right: 3px solid#2980B9  ;">
+                <label>Elige el estado que quieras consultar</label><br>
+                <select class="custom-select" name="estado" id="estado">
+                <option value="no">...</option>
+            <option value="Aguascalientes">Aguascalientes</option>
+            <option value="Baja California">Baja California</option>
+            <option value="Baja California Sur">Baja California Sur</option>
+            <option value="Campeche">Campeche</option>
+            <option value="Chiapas">Chiapas</option>
+            <option value="Chihuahua">Chihuahua</option>
+            <option value="CDMX">Ciudad de México</option>
+            <option value="Coahuila">Coahuila</option>
+            <option value="Colima">Colima</option>
+            <option value="Durango">Durango</option>
+            <option value="Estado de México">Estado de México</option>
+            <option value="Guanajuato">Guanajuato</option>
+            <option value="Guerrero">Guerrero</option>
+            <option value="Hidalgo">Hidalgo</option>
+            <option value="Jalisco">Jalisco</option>
+            <option value="Michoacán">Michoacán</option>
+            <option value="Morelos">Morelos</option>
+            <option value="Nayarit">Nayarit</option>
+            <option value="Nuevo León">Nuevo León</option>
+            <option value="Oaxaca">Oaxaca</option>
+            <option value="Puebla">Puebla</option>
+            <option value="Querétaro">Querétaro</option>
+            <option value="Quintana Roo">Quintana Roo</option>
+            <option value="San Luis Potosí">San Luis Potosí</option>
+            <option value="Sinaloa">Sinaloa</option>
+            <option value="Sonora">Sonora</option>
+            <option value="Tabasco">Tabasco</option>
+            <option value="Tamaulipas">Tamaulipas</option>
+            <option value="Tlaxcala">Tlaxcala</option>
+            <option value="Veracruz">Veracruz</option>
+            <option value="Yucatán">Yucatán</option>
+            <option value="Zacatecas">Zacatecas</option>
+                </select>
+                <div id="resultado"></div>
+                <div class="container" id="chart"></div>
+    
               </div>
               <div class="col-md-3">
                 <h4 class="pt-3 font-weight-bold">Ultimas noticias:</h4>
@@ -124,5 +163,6 @@
             }
         }
     </script>
+    <script type="text/javascript" src="grafica.js"></script>
 </body>
 </html>
