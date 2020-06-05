@@ -73,8 +73,6 @@ function buscarEstado(est){
         cuerito = "select A, R, S";
         drawSheetName(cuerito);
         break;
-    
-
     case 'Durango':
         cuerito = "select A, T, U";
         drawSheetName(cuerito);
