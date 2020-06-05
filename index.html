@@ -10,6 +10,10 @@
     <meta name="title" content="">
     <meta name="description" content="Sistema Inteligente y Ciberseguridad">
     <link href="https://fonts.googleapis.com/css2?family=Tinos:wght@700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet"> 
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/estilos.css">
   </head>
   <body>
     <h1 class="text-justify text-center pt-3 text-uppercase ">Sistema inteligente y Ciberseguridad</h1>
@@ -41,10 +45,15 @@
                 </li>
             </ul>
             </div>
-            <div class="custom-control custom-switch">
+           <!-- <div class="custom-control custom-switch">
                 <label for="swith"> Modo nocturno  </label>
                 <input type="checkbox"  id="switch" checked data-toggle="toggle" data-on="Activar" data-off="Desactivar" data-onstyle="dark" data-offstyle="light" data-size="xs" onchange="modonoche()">
-            </div>
+            </div>-->
+            <i>Modo Nocturno </i>
+            <button class="switch" id="switch">
+              <span><p>D</p></span>
+              <span><p>A</p></span>
+            </button>
         </nav> 
           <div class="row pt-5">
               <div class="col-md-9 " style=" border-right: 3px solid#2980B9  ;">
@@ -223,8 +232,8 @@
    <script src="js/bootstrap4-toggle.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
   <!-- Menu Toggle Script -->
-
-    <script>
+    <script src="js/main.js"></script>
+   <!-- <script>
         var noche = false;
         function modonoche()
         {
@@ -241,7 +250,7 @@
                 style.setAttribute('href',"css/estilonocturno.css");
             }
         }
-    </script>
+    </script>-->
 </body>
 
 </html>
