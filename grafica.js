@@ -81,7 +81,7 @@ function buscarEstado(est){
         break;
     
     case 'Guanajuato':
-        cuerito = "select A, U, V";
+        cuerito = "select A, V, W";
         drawSheetName(cuerito);
         break;
     case 'Guerrero':
