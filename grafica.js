@@ -195,6 +195,6 @@ function handleSampleDataQueryResponseGral1(response) {
         width: '100%',
       height: '900px'
     };
-    let chartMain = new google.visualization.LineChart(document.getElementById('chartContagios'));
+    let chartMain = new google.visualization.LineChart(document.getElementById('chartMain'));
     chartMain.draw(data, opt);   
 }
