@@ -99,3 +99,18 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+
+#chart_wrap {
+  position: relative;
+  padding-bottom: 100%;
+  height: 0;
+  overflow:hidden;
+}
+
+#chart {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width:100%;
+  height:500px;
+}

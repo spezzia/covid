@@ -5,7 +5,6 @@ google.setOnLoadCallback(drawSheetName);
 
 var cuerito;
 function drawSheetName(cuerito) {
-    
     var query = new google.visualization.Query(
     'https://docs.google.com/spreadsheets/d/1n65j8P31lIdU5YV7n-VbKhCTra8csTlGLUbnd8Q4Z_0/gviz/tq?');
     
@@ -19,10 +18,14 @@ function handleSampleDataQueryResponse(response) {
     return;}
 
     var data = response.getDataTable();
-    var chart = new google.visualization.LineChart(document.getElementById('chart'));
-    chart.draw(data, { height: 400 });
-}
 
+    var options = {
+        width: '100%',
+      height: '400px'
+    };
+    var chart = new google.visualization.LineChart(document.getElementById('chart'));
+    chart.draw(data, options);   
+}
 
 const estados = document.querySelector("#estado");
 
@@ -31,7 +34,7 @@ estados.addEventListener('change', (event)=>{
     var est = `${event.target.value}`;
     resultado.textContent = "Elegiste el estado "+ est;
     buscarEstado(est);
-    });
+});
 
 function buscarEstado(est){
     let state = est;
@@ -47,8 +50,7 @@ function buscarEstado(est){
     case 'Baja California Sur':
         cuerito = "select A, F, G";
         drawSheetName(cuerito);
-        break;
-    
+        break;    
     case 'Campeche':
         cuerito = "select A, H, I";
         drawSheetName(cuerito);
@@ -77,7 +79,6 @@ function buscarEstado(est){
         cuerito = "select A, T, U";
         drawSheetName(cuerito);
         break;
-    
     case 'Guanajuato':
         cuerito = "select A, V, W";
         drawSheetName(cuerito);
@@ -166,7 +167,6 @@ function buscarEstado(est){
         cuerito = "select A, BL, BM";
         drawSheetName(cuerito);
         break;
-    
     }
 }
 
