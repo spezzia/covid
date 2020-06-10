@@ -1,8 +1,37 @@
 'use strict'
 
-google.load('visualization', '1.0', {'packages':['corechart']});
-google.setOnLoadCallback(drawSheetName);
+google.load('visualization', '1.0', {'packages':['corechart', 'table']});
+//google.load('visualization', '1.0', {'packages':['table']});
 
+
+google.setOnLoadCallback(drawSheetName1);
+
+function drawSheetName1()
+{
+    let queri = new google.visualization.Query(
+    'https://docs.google.com/spreadsheets/d/1n65j8P31lIdU5YV7n-VbKhCTra8csTlGLUbnd8Q4Z_0/gviz/tq?');
+    
+    queri.setQuery("select A, B, D, G, H, J, L, N, P, R, T, V, X, Z, AB, AD, AF, AH, AJ, AL, AN, AP, AR, AT, AV, AX, AZ, BB, BD, BF, BH, BJ, BL");
+
+    queri.send(handleSampleDataQueryResponseGral1);
+}
+
+function handleSampleDataQueryResponseGral1(response) {
+    if (response.isError()) {
+    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    return;}
+
+    let  data = response.getDataTable();
+
+    let opt = {
+        width: '100%',
+      height: '900px'
+    };
+    let chartMain = new google.visualization.LineChart(document.getElementById('chartMain'));
+    chartMain.draw(data, opt);   
+}
+
+google.setOnLoadCallback(drawSheetName);
 var cuerito;
 function drawSheetName(cuerito) {
     var query = new google.visualization.Query(
@@ -170,29 +199,24 @@ function buscarEstado(est){
     }
 }
 
-google.setOnLoadCallback(drawSheetName1);
 
-function drawSheetName1()
-{
-    let queri = new google.visualization.Query(
-    'https://docs.google.com/spreadsheets/d/1n65j8P31lIdU5YV7n-VbKhCTra8csTlGLUbnd8Q4Z_0/gviz/tq?');
-    
-    queri.setQuery("select A, B, D, G, H, J, L, N, P, R, T, V, X, Z, AB, AD, AF, AH, AJ, AL, AN, AP, AR, AT, AV, AX, AZ, BB, BD, BF, BH, BJ, BL");
+google.setOnLoadCallback(drawSheetNameT);
 
-    queri.send(handleSampleDataQueryResponseGral1);
-}
+function drawSheetNameT() {
+    var queryString = encodeURIComponent('SELECT *');
 
-function handleSampleDataQueryResponseGral1(response) {
+    var query = new google.visualization.Query(
+    'https://docs.google.com/spreadsheets/d/1i3NyIHxA4cse7YItA5dzrfmnMtcxSNdA639VEnYYkX0/edit#gid=0' + queryString);
+    query.send(handleSampleDataQueryResponseT);
+  }
+
+  function handleSampleDataQueryResponseT(response) {
     if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
-    return;}
+      alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+      return;
+    }
 
-    let  data = response.getDataTable();
-
-    let opt = {
-        width: '100%',
-      height: '900px'
-    };
-    let chartMain = new google.visualization.LineChart(document.getElementById('chartMain'));
-    chartMain.draw(data, opt);   
-}
+    var data = response.getDataTable();
+    var chart = new google.visualization.Table(document.getElementById('tablaMun'));
+    chart.draw(data, { height: 2000 });
+  }
