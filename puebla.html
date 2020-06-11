@@ -22,7 +22,7 @@
     
   </head>
   </head>
-<body>
+  <body onresize="myFunction()" onload="load()" >
     <h1 style="font-family: 'Tinos', serif;" class="text-justify text-center pt-3 text-uppercase ">Sistema inteligente y Ciberseguridad</h1>
     <p class="text-justify text-center ">Número Casos: <span id="casos">36,327</span></p>
       <div class="container main rounded ">
@@ -62,8 +62,8 @@
               <span><p>A</p></span>
             </button>
         </nav> 
-          <div class="row pt-5">
-              <div class="col-md-9 " style=" border-right: 3px solid#2980B9  ;">
+          <div class="main row pt-5">
+              <div class="col-md-9 " style=" border-right: 3px solid#2980B9  ;" >
                 <div id="chartPuebla">
                   
                 </div>
@@ -72,8 +72,7 @@
                   <a href="https://docs.google.com/spreadsheets/d/1i3NyIHxA4cse7YItA5dzrfmnMtcxSNdA639VEnYYkX0/edit#gid=0">
                  
                   </a>
-                  <center> Municipios </center>
-                </p>
+                  <p class="text-center">Municipios </p>
                
                 <br />
                 <div style="text-align:center;" id="table"></div>
@@ -81,7 +80,7 @@
               <div class="col-md-3">
                 <h4 class="pt-3 font-weight-bold">Ultimas noticias:</h4>
                     <div class="overflow-auto">
-                        <a class="twitter-timeline" data-height="500" href="https://twitter.com/HLGatell?ref_src=twsrc%5Etfw">Tweets by HLGatell</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                        <a class="twitter-timeline" id="tweet"  data-height="500" href="https://twitter.com/HLGatell?ref_src=twsrc%5Etfw">Tweets by HLGatell</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                     </div>
               </div>
           </div>
@@ -134,25 +133,11 @@
    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
   <!-- Menu Toggle Script -->
   <script src="js/main.js"></script>
-
-   <!-- <script>
-        var noche = false;
-        function modonoche()
-        {
-            if(noche == true)
-            {
-                noche = !noche;
-                let style = document.getElementById("estilo");
-                style.setAttribute('href',"css/estilo.css");
-            }
-            else
-            {
-                noche = !noche;
-                let style = document.getElementById("estilo");
-                style.setAttribute('href',"css/estilonocturno.css");
-            }
-        }
-    </script>-->
-    
+  <script>
+    function myFunction()
+    {
+      location.reload();
+    }
+</script>
   </body>
 </html>

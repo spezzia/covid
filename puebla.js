@@ -1,11 +1,10 @@
 'use strict'
-
 google.load('visualization', '1.0', {'packages':['corechart']});
 google.setOnLoadCallback(drawSheetName);
 
 google.load('visualization', '1.0', {'packages' : ['table']});
   google.setOnLoadCallback(init);
-  
+
 
 /*Grafica*/
 function drawSheetName() {
@@ -21,10 +20,17 @@ function handleSampleDataQueryResponse(response) {
     if (response.isError()) {
     alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;}
-
+    var options = {
+      title: 'Most Popular Programming Languages',
+      width: '100%',
+      height: '100%'
+    };
     var data = response.getDataTable();
+    data.Kf[1].label = "Apestosos";
+    data.Kf[2].label = "Moridos";
+    console.log(data.Kf[1].label);
     var chart = new google.visualization.LineChart(document.getElementById('chartPuebla'));
-    chart.draw(data, { height: 400 });
+    chart.draw(data, options);
 }
 
 /*Tabla Municipios*/
@@ -97,7 +103,7 @@ TableQueryWrapper.prototype.handleSort = function(properties) {
   var colID = this.currentDataTable.getColumnId(columnIndex);
   this.sortQueryClause = 'order by `' + colID + (!isAscending ? '` desc' : '`');
   // Calls sendAndDraw internally.
-  this.handlePage({'page': 0});
+  this.handlePage({'page': 0 });
 };
 
 
@@ -160,7 +166,10 @@ var query, options, container;
 function init() {
   query = new google.visualization.Query(dataSourceUrl);
   container = document.getElementById("table");
-  options = {'pageSize': 570};
+  options = {'pageSize': 570,
+  width: '100%',
+  height: '100%'
+  };
   sendAndDraw();
 }
 
@@ -174,3 +183,4 @@ function setOption(prop, value) {
   options[prop] = value;
   sendAndDraw();
 }
+
