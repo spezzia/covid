@@ -56,6 +56,29 @@ function handleSampleDataQueryResponse(response) {
     chart.draw(data, options);   
 }
 
+google.setOnLoadCallback(drawSheetNameT);
+var cueritoTabla;
+function drawSheetNameT(cueritoTabla) {
+    //var queryString = encodeURIComponent('SELECT *');
+
+    var query = new google.visualization.Query(
+    'https://docs.google.com/spreadsheets/d/1t8yE6uEjGOxPyVljYUkDrPv_d7sVdCaEMg0L-9UM4D0/edit#gid=0');
+    query.setQuery(cueritoTabla);
+    query.send(handleSampleDataQueryResponseT);
+  }
+
+  function handleSampleDataQueryResponseT(response) {
+    if (response.isError()) {
+      alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+      return;
+    }
+
+    var data = response.getDataTable();
+    var chart = new google.visualization.Table(document.getElementById('tablaMun'));
+    chart.draw(data, { height: 2000 });
+  }
+  
+
 const estados = document.querySelector("#estado");
 
 estados.addEventListener('change', (event)=>{
@@ -70,7 +93,9 @@ function buscarEstado(est){
     switch(state){
     case 'Aguascalientes':
         cuerito = "select A, B, C";
+        cueritoTabla = "select A,B,C";
         drawSheetName(cuerito);
+        drawSheetNameT(cueritoTabla);
         break;
     case 'Baja California':
         cuerito = "select A, D, E";
@@ -200,23 +225,3 @@ function buscarEstado(est){
 }
 
 
-google.setOnLoadCallback(drawSheetNameT);
-
-function drawSheetNameT() {
-    var queryString = encodeURIComponent('SELECT *');
-
-    var query = new google.visualization.Query(
-    'https://docs.google.com/spreadsheets/d/1i3NyIHxA4cse7YItA5dzrfmnMtcxSNdA639VEnYYkX0/edit#gid=0' + queryString);
-    query.send(handleSampleDataQueryResponseT);
-  }
-
-  function handleSampleDataQueryResponseT(response) {
-    if (response.isError()) {
-      alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
-      return;
-    }
-
-    var data = response.getDataTable();
-    var chart = new google.visualization.Table(document.getElementById('tablaMun'));
-    chart.draw(data, { height: 2000 });
-  }
