@@ -75,7 +75,7 @@ function drawSheetNameT(cueritoTabla) {
 
     var data = response.getDataTable();
     var chart = new google.visualization.Table(document.getElementById('tablaMun'));
-    chart.draw(data, { height: 2000 });
+    chart.draw(data, { height: 250 });
   }
   
 
@@ -99,127 +99,189 @@ function buscarEstado(est){
         break;
     case 'Baja California':
         cuerito = "select A, D, E";
+        cueritoTabla = "select D,E,F";
         drawSheetName(cuerito);
+        drawSheetNameT(cueritoTabla);
         break;
     case 'Baja California Sur':
         cuerito = "select A, F, G";
+        cueritoTabla = "select G,H,I";
         drawSheetName(cuerito);
+        drawSheetNameT(cueritoTabla);
         break;    
     case 'Campeche':
         cuerito = "select A, H, I";
+        cueritoTabla = "select J,K,L";
         drawSheetName(cuerito);
+        drawSheetNameT(cueritoTabla);
         break;
     case 'Coahuila':
         cuerito = "select A, J, K";
+        cueritoTabla = "select M,N,O";
         drawSheetName(cuerito);
+        drawSheetNameT(cueritoTabla);
         break;
     case 'Colima':
         cuerito = "select A, L, M";
+        cueritoTabla = "select P,Q,R";
         drawSheetName(cuerito);
+        drawSheetNameT(cueritoTabla);
         break;
     case 'Chiapas':
         cuerito = "select A, N, O";
+        cueritoTabla = "select S,T,U";
         drawSheetName(cuerito);
+        drawSheetNameT(cueritoTabla);
         break;
     case 'Chihuahua':
         cuerito = "select A, P, Q";
+        cueritoTabla = "select V,W,X";
         drawSheetName(cuerito);
+        drawSheetNameT(cueritoTabla);
         break;
     case 'CDMX':
         cuerito = "select A, R, S";
+        cueritoTabla = "select Y,Z,AA";
         drawSheetName(cuerito);
+        drawSheetNameT(cueritoTabla);
         break;
     case 'Durango':
         cuerito = "select A, T, U";
+        cueritoTabla = "select AB,AC,AD";
         drawSheetName(cuerito);
+        drawSheetNameT(cueritoTabla);
         break;
     case 'Guanajuato':
         cuerito = "select A, V, W";
+        cueritoTabla = "select AE,AF,AG";
         drawSheetName(cuerito);
+        drawSheetNameT(cueritoTabla);
         break;
     case 'Guerrero':
         cuerito = "select A, X, Y";
+        cueritoTabla = "select AH,AI,AJ";
         drawSheetName(cuerito);
+        drawSheetNameT(cueritoTabla);
         break;
     case 'Hidalgo':
         cuerito = "select A, Z, AA";
+        cueritoTabla = "select AK,AL,AM";
         drawSheetName(cuerito);
+        drawSheetNameT(cueritoTabla);
         break;
     case 'Jalisco':
         cuerito = "select A, AB, AC";
+        cueritoTabla = "select AN,AO,AP";
         drawSheetName(cuerito);
+        drawSheetNameT(cueritoTabla);
         break;
     case 'Estado de México':
         cuerito = "select A, AD, AE";
+        cueritoTabla = "select AQ,AR,AS";
         drawSheetName(cuerito);
+        drawSheetNameT(cueritoTabla);
         break;
     case 'Michoacán':
         cuerito = "select A, AF, AG";
+        cueritoTabla = "select AT,AU,AV";
         drawSheetName(cuerito);
+        drawSheetNameT(cueritoTabla);
         break;
     case 'Morelos':
         cuerito = "select A, AH, AI";
+        cueritoTabla = "select AW,AX,AY";
         drawSheetName(cuerito);
+        drawSheetNameT(cueritoTabla);
         break;
     case 'Nayarit':
         cuerito = "select A, AJ, AK";
+        cueritoTabla = "select AZ,BA,BB";
         drawSheetName(cuerito);
+        drawSheetNameT(cueritoTabla);
         break;
     case 'Nuevo León':
         cuerito = "select A, AL, AM";
+        cueritoTabla = "select BC,BD,BE";
         drawSheetName(cuerito);
+        drawSheetNameT(cueritoTabla);
         break;                                 
     case 'Oaxaca':
         cuerito = "select A, AN, AO";
+        cueritoTabla = "select BF,BG,BH";
         drawSheetName(cuerito);
+        drawSheetNameT(cueritoTabla);
         break;
     case 'Puebla':
         cuerito = "select A, AP, AQ";
+        cueritoTabla = "select BI,BJ,BK";
         drawSheetName(cuerito);
+        drawSheetNameT(cueritoTabla);
         break;
     case 'Querétaro':
         cuerito = "select A, AR, AS";
+        cueritoTabla = "select BL,BM,BN";
         drawSheetName(cuerito);
+        drawSheetNameT(cueritoTabla);
         break;
     case 'Quintana Roo':
         cuerito = "select A, AT, AU";
+        cueritoTabla = "select BO,BP,BQ";
         drawSheetName(cuerito);
+        drawSheetNameT(cueritoTabla);
         break;
     case 'San Luis Potosí':
         cuerito = "select A, AV, AW";
+        cueritoTabla = "select BR,BS,BT";
         drawSheetName(cuerito);
+        drawSheetNameT(cueritoTabla);
         break;
     case 'Sinaloa':
         cuerito = "select A, AX, AY";
+        cueritoTabla = "select BU,BV,BW";
         drawSheetName(cuerito);
+        drawSheetNameT(cueritoTabla);
         break;
     case 'Sonora':
         cuerito = "select A, AZ, BA";
+        cueritoTabla = "select BX,BY,BZ";
         drawSheetName(cuerito);
+        drawSheetNameT(cueritoTabla);
         break;
     case 'Tabasco':
         cuerito = "select A, BB, BC";
+        cueritoTabla = "select CA,CB,CC";
         drawSheetName(cuerito);
+        drawSheetNameT(cueritoTabla);
         break;
     case 'Tamaulipas':
         cuerito = "select A, BD, BE";
+        cueritoTabla = "select CD,CE,CF";
         drawSheetName(cuerito);
+        drawSheetNameT(cueritoTabla);
         break;
     case 'Tlaxcala':
         cuerito = "select A, BF, BG";
+        cueritoTabla = "select CG,CH,CI";
         drawSheetName(cuerito);
+        drawSheetNameT(cueritoTabla);
         break;
     case 'Veracruz':
         cuerito = "select A, BH, BI";
+        cueritoTabla = "select CJ,CK,CL";
         drawSheetName(cuerito);
+        drawSheetNameT(cueritoTabla);
         break;
     case 'Yucatán':
         cuerito = "select A, BJ, BK";
+        cueritoTabla = "select CM,CN,CO";
         drawSheetName(cuerito);
+        drawSheetNameT(cueritoTabla);
         break;
     case 'Zacatecas':
         cuerito = "select A, BL, BM";
+        cueritoTabla = "select CP,CQ,CR";
         drawSheetName(cuerito);
+        drawSheetNameT(cueritoTabla);
         break;
     }
 }
