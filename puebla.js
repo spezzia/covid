@@ -26,8 +26,8 @@ function handleSampleDataQueryResponse(response) {
       height: '100%'
     };
     var data = response.getDataTable();
-    data.Kf[1].label = "Apestosos";
-    data.Kf[2].label = "Moridos";
+    data.Kf[1].label = "Contagios";
+    data.Kf[2].label = "Decesos";
     console.log(data.Kf[1].label);
     var chart = new google.visualization.LineChart(document.getElementById('chartPuebla'));
     chart.draw(data, options);
