@@ -25,7 +25,7 @@ function handleSampleDataQueryResponseGral1(response) {
 
     let opt = {
         width: '100%',
-      height: '900px'
+      height: '100%'
     };
     let chartMain = new google.visualization.LineChart(document.getElementById('chartMain'));
     chartMain.draw(data, opt);   
@@ -62,8 +62,6 @@ function handleSampleDataQueryResponse(response) {
 google.setOnLoadCallback(drawSheetNameT);
 var cueritoTabla;
 function drawSheetNameT(cueritoTabla) {
-    //var queryString = encodeURIComponent('SELECT *');
-
     var query = new google.visualization.Query(
     'https://docs.google.com/spreadsheets/d/1t8yE6uEjGOxPyVljYUkDrPv_d7sVdCaEMg0L-9UM4D0/edit#gid=0');
     query.setQuery(cueritoTabla);
@@ -75,10 +73,14 @@ function drawSheetNameT(cueritoTabla) {
       alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
       return;
     }
+    var options = {
+        height: 250,
+        //backgroundColor:{fill: 'transparent'} 
+    };
 
     var data = response.getDataTable();
     var chart = new google.visualization.Table(document.getElementById('tablaMun'));
-    chart.draw(data, { height: 250 });
+    chart.draw(data, options );
   }
   
 
@@ -87,7 +89,7 @@ const estados = document.querySelector("#estado");
 estados.addEventListener('change', (event)=>{
     let estado  = document.querySelector("#resultado");
     var est = `${event.target.value}`;
-    resultado.textContent = "Elegiste el estado "+ est;
+    //resultado.textContent = "Elegiste el estado "+ est;
     buscarEstado(est);
 });
 

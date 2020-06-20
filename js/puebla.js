@@ -2,8 +2,8 @@
 google.load('visualization', '1.0', {'packages':['corechart']});
 google.setOnLoadCallback(drawSheetName);
 
-google.load('visualization', '1.0', {'packages' : ['table']});
-  google.setOnLoadCallback(init);
+//google.load('visualization', '1.0', {'packages' : ['table']});
+  //google.setOnLoadCallback(init);
 
 
 /*Grafica*/
@@ -21,9 +21,9 @@ function handleSampleDataQueryResponse(response) {
     alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;}
     var options = {
-      title: 'Most Popular Programming Languages',
       width: '100%',
-      height: '100%'
+      height: '100%',
+      backgroundColor:{fill: 'transparent'} 
     };
     var data = response.getDataTable();
     data.Kf[1].label = "Contagios";
@@ -168,7 +168,8 @@ function init() {
   container = document.getElementById("table");
   options = {'pageSize': 570,
   width: '100%',
-  height: '100%'
+  height: '100%',
+  backgroundColor:{fill: 'transparent'} 
   };
   sendAndDraw();
 }
