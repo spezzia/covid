@@ -23,7 +23,6 @@ function handleSampleDataQueryResponse(response) {
     var options = {
       width: '100%',
       height: '100%',
-      backgroundColor:{fill: 'transparent'} 
     };
     var data = response.getDataTable();
     data.Kf[1].label = "Contagios";

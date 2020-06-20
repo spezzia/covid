@@ -50,17 +50,15 @@
                 <label for="swith"> Modo  nocturno  </label>
                 <input type="checkbox"  id="switch" checked data-toggle="toggle" data-on="Activar" data-off="Desactivar" data-onstyle="dark" data-offstyle="light" data-size="xs" onchange="modonoche()">
             </div>-->
-            <i>Modo Nocturno </i>
-            <button class="switch" id="switch">
-              <span><p>D</p></span>
-              <span><p>A</p></span>
-            </button>
+           
         </nav> 
           <div class="row pt-5">
             <div class="col-md-9 " style=" border-right: 3px solid#2980B9  ;">
-              <h4>Contagios confirmados</h4>
+              <h5 class="text-center">Grafica de contagios</h5>
                 <div id="chartMain">
+                  <div id="chart_wrap"></div>
                 </div>
+               
                 <label>Elige el estado que quieras consultar</label><br>          
                 <select class="custom-select" name="estado" id="estado">
                 <option value="no">...</option>

@@ -119,7 +119,7 @@ input:checked + .slider:before {
 }
 
 #chartMain {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   width:100%;
@@ -145,4 +145,18 @@ input:checked + .slider:before {
 select{
   position: relative;
   
+}
+#chartMuertes {
+  position: relative;
+  top: 0;
+  left: 0;
+  width:100%;
+  height:500px;
+}
+#chartContagios {
+  position: relative;
+  top: 0;
+  left: 0;
+  width:100%;
+  height:500px;
 }

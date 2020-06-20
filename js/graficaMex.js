@@ -22,7 +22,7 @@ function handleSampleDataQueryResponseGral1(response) {
 
     let opt = {
         width: '100%',
-      height: '900px'
+      height: '100%'
     };
     let chartMain = new google.visualization.LineChart(document.getElementById('chartContagios'));
     chartMain.draw(data, opt);   
@@ -48,7 +48,7 @@ function handleSampleDataQueryResponseGralMuertes(response) {
 
     let opt = {
         width: '100%',
-      height: '900px'
+      height: '100%'
     };
     let chartMain = new google.visualization.LineChart(document.getElementById('chartMuertes'));
     chartMain.draw(data, opt);   
