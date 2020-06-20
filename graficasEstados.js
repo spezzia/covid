@@ -47,6 +47,9 @@ function handleSampleDataQueryResponse(response) {
     return;}
 
     var data = response.getDataTable();
+    data.Kf[1].label = "Contagios";
+    data.Kf[2].label = "Decesos";
+    console.log(data.Kf[1].label);
 
     var options = {
         width: '100%',
