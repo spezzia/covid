@@ -25,7 +25,7 @@ function handleSampleDataQueryResponseGral1(response) {
 
     let opt = {
         width: '100%',
-      height: '100%'
+      height: '400px'
     };
     let chartMain = new google.visualization.LineChart(document.getElementById('chartMain'));
     chartMain.draw(data, opt);   
@@ -49,7 +49,7 @@ function handleSampleDataQueryResponse(response) {
     var data = response.getDataTable();
     data.Kf[1].label = "Contagios";
     data.Kf[2].label = "Decesos";
-    console.log(data.Kf[1].label);
+    //console.log(data.Kf[1].label);
 
     var options = {
         width: '100%',
@@ -62,6 +62,8 @@ function handleSampleDataQueryResponse(response) {
 google.setOnLoadCallback(drawSheetNameT);
 var cueritoTabla;
 function drawSheetNameT(cueritoTabla) {
+    //var queryString = encodeURIComponent('SELECT *');
+
     var query = new google.visualization.Query(
     'https://docs.google.com/spreadsheets/d/1t8yE6uEjGOxPyVljYUkDrPv_d7sVdCaEMg0L-9UM4D0/edit#gid=0');
     query.setQuery(cueritoTabla);
@@ -73,14 +75,58 @@ function drawSheetNameT(cueritoTabla) {
       alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
       return;
     }
-    var options = {
-        height: 250,
-        //backgroundColor:{fill: 'transparent'} 
-    };
 
     var data = response.getDataTable();
-    var chart = new google.visualization.Table(document.getElementById('tablaMun'));
-    chart.draw(data, options );
+    console.log(data.hg[0].c[1].v);
+    var div = document.getElementById('tablaMun');
+    var tablaanterior = div.firstChild;
+    div.removeChild(tablaanterior);
+    var tabla = document.createElement('table');
+    tabla.setAttribute('class','table');
+    tabla.setAttribute('id','municipios');
+    var Ttabla = document.createElement('thead');
+    var trhead = document.createElement('tr');
+    for(var i = 0; i < 3 ; i++)
+    {
+        var title = document.createElement('th');
+        title.setAttribute('scope',"col");
+        var text = document.createTextNode(data.Kf[i].label);
+        title.appendChild(text);
+        trhead.appendChild(title);
+    }
+    Ttabla.appendChild(trhead);
+    tabla.appendChild(Ttabla);
+
+    var tbody = document.createElement('tbody');
+
+    var i = 0;
+    while(data.hg[i].c[1] != null)
+    {
+        var trhead = document.createElement('tr');
+        for(var e = 0; e < 3 ; e++)
+        {
+            var td = document.createElement('td');
+            if(data.hg[i].c[e].v == null)
+            {
+                var text = document.createTextNode('');
+            }
+            else
+            {
+                var text = document.createTextNode(data.hg[i].c[e].v );
+            }
+            td.appendChild(text);
+            trhead.appendChild(td);
+        }
+        tbody.appendChild(trhead);
+        i++;
+    }
+    tabla.appendChild(tbody);
+
+    div.appendChild(tabla);
+
+
+    //var chart = new google.visualization.Table(document.getElementById('tablaMun'));
+    //chart.draw(data, { height: 250 });
   }
   
 
@@ -89,7 +135,7 @@ const estados = document.querySelector("#estado");
 estados.addEventListener('change', (event)=>{
     let estado  = document.querySelector("#resultado");
     var est = `${event.target.value}`;
-    //resultado.textContent = "Elegiste el estado "+ est;
+    resultado.textContent = "Elegiste el estado "+ est;
     buscarEstado(est);
 });
 
