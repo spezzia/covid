@@ -15,11 +15,9 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet"> 
     <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/estilos.css">
-
-    
 </head>
 <body onresize="myFunction()">
-    <h1 class="text-justify text-center pt-3 text-uppercase ">Sistema inteligente y Ciberseguridad</h1>
+    <h1 style="font-family: 'Tinos', serif;" class="text-justify text-center pt-3 text-uppercase ">Sistema inteligente y Ciberseguridad</h1>
     <p class="text-justify text-center ">Número Casos: <span id="casos">36,327</span></p>
       <div class="container main rounded ">
         <nav class="navbar navbar-expand-lg sticky-top navbar-dark rounded nav">
@@ -60,121 +58,116 @@
         </nav> 
           <div class="row pt-5">
             <div class="col-md-9 " style=" border-right: 3px solid#2980B9  ;">
-              <h4>Contagios diarios confirmados por estado</h4>
-                <div id="chart_wrap2">
-                  <div id="chartMain">
-                  </div>
+              <h4>Contagios confirmados</h4>
+                <div id="chartMain">
                 </div>
-                
-
                 <label>Elige el estado que quieras consultar</label><br>          
-
                 <select class="custom-select" name="estado" id="estado">
-                <option value="Aguascalientes">...</option>
-                  <option value="Aguascalientes">Aguascalientes</option>
-                  <option value="Baja California">Baja California</option>
-                  <option value="Baja California Sur">Baja California Sur</option>
-                  <option value="Campeche">Campeche</option>
-                  <option value="Chiapas">Chiapas</option>
-                  <option value="Chihuahua">Chihuahua</option>
-                  <option value="CDMX">Ciudad de México</option>
-                  <option value="Coahuila">Coahuila</option>
-                  <option value="Colima">Colima</option>
-                  <option value="Durango">Durango</option>
-                  <option value="Estado de México">Estado de México</option>
-                  <option value="Guanajuato">Guanajuato</option>
-                  <option value="Guerrero">Guerrero</option>
-                  <option value="Hidalgo">Hidalgo</option>
-                  <option value="Jalisco">Jalisco</option>
-                  <option value="Michoacán">Michoacán</option>
-                  <option value="Morelos">Morelos</option>
-                  <option value="Nayarit">Nayarit</option>
-                  <option value="Nuevo León">Nuevo León</option>
-                  <option value="Oaxaca">Oaxaca</option>
-                  <option value="Puebla">Puebla</option>
-                  <option value="Querétaro">Querétaro</option>
-                  <option value="Quintana Roo">Quintana Roo</option>
-                  <option value="San Luis Potosí">San Luis Potosí</option>
-                  <option value="Sinaloa">Sinaloa</option>
-                  <option value="Sonora">Sonora</option>
-                  <option value="Tabasco">Tabasco</option>
-                  <option value="Tamaulipas">Tamaulipas</option>
-                  <option value="Tlaxcala">Tlaxcala</option>
-                  <option value="Veracruz">Veracruz</option>
-                  <option value="Yucatán">Yucatán</option>
-                  <option value="Zacatecas">Zacatecas</option>
+                <option value="no">...</option>
+            <option value="Aguascalientes">Aguascalientes</option>
+            <option value="Baja California">Baja California</option>
+            <option value="Baja California Sur">Baja California Sur</option>
+            <option value="Campeche">Campeche</option>
+            <option value="Chiapas">Chiapas</option>
+            <option value="Chihuahua">Chihuahua</option>
+            <option value="CDMX">Ciudad de México</option>
+            <option value="Coahuila">Coahuila</option>
+            <option value="Colima">Colima</option>
+            <option value="Durango">Durango</option>
+            <option value="Estado de México">Estado de México</option>
+            <option value="Guanajuato">Guanajuato</option>
+            <option value="Guerrero">Guerrero</option>
+            <option value="Hidalgo">Hidalgo</option>
+            <option value="Jalisco">Jalisco</option>
+            <option value="Michoacán">Michoacán</option>
+            <option value="Morelos">Morelos</option>
+            <option value="Nayarit">Nayarit</option>
+            <option value="Nuevo León">Nuevo León</option>
+            <option value="Oaxaca">Oaxaca</option>
+            <option value="Puebla">Puebla</option>
+            <option value="Querétaro">Querétaro</option>
+            <option value="Quintana Roo">Quintana Roo</option>
+            <option value="San Luis Potosí">San Luis Potosí</option>
+            <option value="Sinaloa">Sinaloa</option>
+            <option value="Sonora">Sonora</option>
+            <option value="Tabasco">Tabasco</option>
+            <option value="Tamaulipas">Tamaulipas</option>
+            <option value="Tlaxcala">Tlaxcala</option>
+            <option value="Veracruz">Veracruz</option>
+            <option value="Yucatán">Yucatán</option>
+            <option value="Zacatecas">Zacatecas</option>
                 </select>
-
-                <div id="resultado"></div>
+                <div class="pt-3" id="resultado"></div>
                 <div id="chart_wrap">
-                   <div id="chart"></div>
+                    <div id="chart">
+                    </div>
                 </div>
-                <div style="text-align:center;" id="tablaMun">
+                <div class="p-5" id="tablaMun">
                 </div>
-              </div>
-              <div class="col-md-3">
+            </div>
+            <div class="col-md-3">
                 <h4 class="pt-3 font-weight-bold">Ultimas noticias:</h4>
                     <div class="overflow-auto">
                         <a class="twitter-timeline" data-height="500" href="https://twitter.com/HLGatell?ref_src=twsrc%5Etfw">Tweets by HLGatell</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                     </div>
-              </div>
+            </div>
           </div>
       </div>
 
       <!-- Footer -->
-<footer class="pt-3">
+      <footer class="pt-3">
 
-    <!-- Footer Elements -->
-    <div class="container " style=" border-top: 3px solid#2980B9  ;">
-  
-      <!-- Grid row-->
-      <div class="row">
-  
-        <!-- Grid column -->
-        <div class="col-md-12">
-        <p class="text-center  pt-3">Siguenos en : </p>
-          <div class="text-center">
-  
-            <!-- Facebook -->
-            <a class="fb-ic pr-5" href="https://www.facebook.com/Sistemas-Inteligentes-y-Ciberseguridad-106231081047400">
-                <img src="./imagenes/facebook.svg" width="40" height="40" alt=""> <small>Facebook
-                </small>            </a>
-            <!-- Twitter -->
-            <a class="tw-ic" href="https://twitter.com/SIyCiSe">
-              <img src="./imagenes/twitter.svg"  width="40" height="40" alt=""> <small> Twitter </small>
-            </a>
+        <!-- Footer Elements -->
+        <div class="container " style=" border-top: 3px solid#2980B9  ;">
+      
+          <!-- Grid row-->
+          <div class="row">
+      
+            <!-- Grid column -->
+            <div class="col-md-12">
+            <p class="text-center  pt-3">Siguenos en : </p>
+              <div class="text-center">
+      
+                <!-- Facebook -->
+                <a class="fb-ic pr-5" href="https://www.facebook.com/Sistemas-Inteligentes-y-Ciberseguridad-106231081047400">
+                    <img src="./imagenes/facebook.svg" width="40" height="40" alt=""> <small>Facebook
+                    </small>            </a>
+                <!-- Twitter -->
+                <a class="tw-ic" href="https://twitter.com/SIyCiSe">
+                  <img src="./imagenes/twitter.svg"  width="40" height="40" alt=""> <small> Twitter </small>
+                </a>
+              </div>
+            </div>
+            <!-- Grid column -->
+      
           </div>
+          <!-- Grid row-->
+      
         </div>
-        <!-- Grid column -->
-  
-      </div>
-      <!-- Grid row-->
-  
-    </div>
-    <!-- Footer Elements -->
-  
-    <!-- Copyright -->
-    <div class="footer-copyright text-center pt-3 pb-5">© 2020 Copyright
-    </div>
-    <!-- Copyright -->
-
-
-
-   <!-- Bootstrap-->
-   <script src="js/jquery.js"></script>
-   <script src="js/popper.min.js"></script>
-   <script src="js/bootstrap.min.js"></script>
-   <script src="js/bootstrap4-toggle.js"></script>
-   <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
-  <!-- Menu Toggle Script -->
-  <script src="js/main.js"></script>
-    <script>
-        function myFunction()
-        {
-          location.reload();
-        }
-    </script>
-    <script type="text/javascript" src="js/graficasEstados.js"></script>
-   <!-- <script type="text/javascript" src="graficaGral.js"></script>-->
-</body>
-</html>
+        <!-- Footer Elements -->
+      
+        <!-- Copyright -->
+        <div class="footer-copyright text-center pt-3 pb-5">© 2020 Copyright
+        </div>
+        <!-- Copyright -->
+    
+    
+    
+       <!-- Bootstrap-->
+       <script src="js/jquery.js"></script>
+       <script src="js/popper.min.js"></script>
+       <script src="js/bootstrap.min.js"></script>
+       <script src="js/bootstrap4-toggle.js"></script>
+       <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+      <!-- Menu Toggle Script -->
+      <script src="js/main.js"></script>
+        <script>
+            function myFunction()
+            {
+              location.reload();
+            }
+        </script>
+        <script type="text/javascript" src="js/graficasEstados.js"></script>
+       <!-- <script type="text/javascript" src="graficaGral.js"></script>-->
+    </body>
+    </html>
