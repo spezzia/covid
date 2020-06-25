@@ -62,8 +62,6 @@ function handleSampleDataQueryResponse(response) {
 google.setOnLoadCallback(drawSheetNameT);
 var cueritoTabla;
 function drawSheetNameT(cueritoTabla) {
-    //var queryString = encodeURIComponent('SELECT *');
-
     var query = new google.visualization.Query(
     'https://docs.google.com/spreadsheets/d/1t8yE6uEjGOxPyVljYUkDrPv_d7sVdCaEMg0L-9UM4D0/edit#gid=0');
     query.setQuery(cueritoTabla);
@@ -77,6 +75,8 @@ function drawSheetNameT(cueritoTabla) {
     }
 
     var data = response.getDataTable();
+    console.log(data);
+    console.log(data.hg[0].c[1]);
     console.log(data.hg[0].c[1].v);
     var div = document.getElementById('tablaMun');
     var tablaanterior = div.firstChild;
@@ -133,9 +133,7 @@ function drawSheetNameT(cueritoTabla) {
 const estados = document.querySelector("#estado");
 
 estados.addEventListener('change', (event)=>{
-    let estado  = document.querySelector("#resultado");
     var est = `${event.target.value}`;
-    resultado.textContent = "Elegiste el estado "+ est;
     buscarEstado(est);
 });
 
