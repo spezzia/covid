@@ -3,7 +3,9 @@
 google.load('visualization', '1.0', {'packages':['corechart', 'table']});
 //google.load('visualization', '1.0', {'packages':['table']});
 
-
+var estados_republica = ['Aguascalientes','Baja California','Baja California Sur','Campeche','Coahuila','Colima','Chiapas','Chihuahua','CDMX','Durango','Guanajuato','Guerrero','Hidalgo','Jalisco','Estado de México','Michoacán','Morelos','Nayarit','Nuevo León','Oaxaca','Puebla','Querétaro','Quintana Roo','San Luis Potosí','Sinaloa','Sonora','Tabasco','Tamaulipas','Tlaxcala','Veracruz','Yucatán','Zacatecas'];
+var datos_estados = new Array();
+var contador = 0;
 google.setOnLoadCallback(drawSheetName1);
 
 function drawSheetName1()
@@ -22,13 +24,18 @@ function handleSampleDataQueryResponseGral1(response) {
     return;}
 
     let  data = response.getDataTable();
-
+    //console.log(data);
     let opt = {
         width: '100%',
       height: '400px'
     };
     let chartMain = new google.visualization.LineChart(document.getElementById('chartMain'));
     chartMain.draw(data, opt);   
+    //for(var i = 0; i < 33 ; i++)
+    {
+        DatosEstados(estados_republica[0]);
+    }
+    console.log(datos_estados)
 }
 
 google.setOnLoadCallback(drawSheetName);
@@ -49,6 +56,7 @@ function handleSampleDataQueryResponse(response) {
     var data = response.getDataTable();
     data.Kf[1].label = "Contagios";
     data.Kf[2].label = "Decesos";
+
     //console.log(data.Kf[1].label);
 
     var options = {
@@ -61,6 +69,29 @@ function handleSampleDataQueryResponse(response) {
 
 google.setOnLoadCallback(drawSheetNameT);
 var cueritoTabla;
+function casosconfirmadosestados(cueritoTabla) {
+    var query = new google.visualization.Query(
+    'https://docs.google.com/spreadsheets/d/1t8yE6uEjGOxPyVljYUkDrPv_d7sVdCaEMg0L-9UM4D0/edit#gid=0');
+    query.setQuery(cueritoTabla);
+    return query.send(datosconfirmados);
+  }
+
+  function datosconfirmados(response) {
+    if (response.isError()) {
+      alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+      return;
+    }
+    var data = response.getDataTable();
+    datos_estados.push([data.hg[0].c[0].v,estados_republica[contador]]);
+    contador = contador + 1; 
+    if(contador < 33)
+    {
+        DatosEstados(estados_republica[contador]);
+    }
+  }
+
+
+
 function drawSheetNameT(cueritoTabla) {
     var query = new google.visualization.Query(
     'https://docs.google.com/spreadsheets/d/1t8yE6uEjGOxPyVljYUkDrPv_d7sVdCaEMg0L-9UM4D0/edit#gid=0');
@@ -131,7 +162,6 @@ function drawSheetNameT(cueritoTabla) {
   
 
 const estados = document.querySelector("#estado");
-
 estados.addEventListener('change', (event)=>{
     var est = `${event.target.value}`;
     buscarEstado(est);
@@ -170,7 +200,7 @@ function buscarEstado(est){
         drawSheetName(cuerito);
         drawSheetNameT(cueritoTabla);
         break;
-    case 'Colima':
+    case 'Colima':  
         cuerito = "select A, L, M";
         cueritoTabla = "select P,Q,R";
         drawSheetName(cuerito);
@@ -336,34 +366,10 @@ function buscarEstado(est){
 }
 
 const checkEstados = document.querySelector("#checkEstado")
-/*checkEstados.addEventListener ('change', (event)=>{
-    /*var estados = `${event.target.value}`;
-    console.log(estados);
-    var estados = new Array();
-    var datosValue = new Array();
-    $('#')
-    
-})*/
-/*
-$(document).ready(function(){
-    $('#enlace').click(function(){
-            var datostxt = new Array();
-            var datosvalue = new Array();
-            $('#checkEstados option:selected').each(function(){
-                    datostxt.push($(this).text());
-                    datosvalue.push($(this).val());
-                    
-            });
-            console.log(datostxt);
-            console.log(datosvalue);
-    });
-   
-    
-});
-*/
 
 $("#checkEstado").on('change', function() {
     var val = $(this).val();
     // te muestra un array de todos los seleccionados
     console.log(val);
   });
+
