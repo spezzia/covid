@@ -335,4 +335,35 @@ function buscarEstado(est){
     }
 }
 
+const checkEstados = document.querySelector("#checkEstado")
+/*checkEstados.addEventListener ('change', (event)=>{
+    /*var estados = `${event.target.value}`;
+    console.log(estados);
+    var estados = new Array();
+    var datosValue = new Array();
+    $('#')
+    
+})*/
+/*
+$(document).ready(function(){
+    $('#enlace').click(function(){
+            var datostxt = new Array();
+            var datosvalue = new Array();
+            $('#checkEstados option:selected').each(function(){
+                    datostxt.push($(this).text());
+                    datosvalue.push($(this).val());
+                    
+            });
+            console.log(datostxt);
+            console.log(datosvalue);
+    });
+   
+    
+});
+*/
 
+$("#checkEstado").on('change', function() {
+    var val = $(this).val();
+    // te muestra un array de todos los seleccionados
+    console.log(val);
+  });
