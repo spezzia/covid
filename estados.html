@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap4-toggle.min.css">
     <link  id="estilo" rel="stylesheet" href="css/estilo.css">
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <meta name="description" content="Sistema Inteligente y Ciberseguridad">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet"> 
     <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
@@ -46,51 +46,46 @@
                 </li>
             </ul>
             </div>
-           <!-- <div class="custom-control custom-switch">
-                <label for="swith"> Modo  nocturno  </label>
-                <input type="checkbox"  id="switch" checked data-toggle="toggle" data-on="Activar" data-off="Desactivar" data-onstyle="dark" data-offstyle="light" data-size="xs" onchange="modonoche()">
-            </div>-->
-           
         </nav> 
           <div class="row pt-5">
             <div class="col-md-9 " style=" border-right: 3px solid#2980B9  ;">
               <h5 class="text-center">Gráfica de contagios</h5>
               <select name="checkEstado" id="checkEstado" class="selectpicker" multiple>
-                <option value="no">...</option>
-                  <option value="Aguascalientes">Aguascalientes</option>
-                  <option value="Baja California">Baja California</option>
-                  <option value="Baja California Sur">Baja California Sur</option>
-                  <option value="Campeche">Campeche</option>
-                  <option value="Chiapas">Chiapas</option>
-                  <option value="Chihuahua">Chihuahua</option>
-                  <option value="CDMX">Ciudad de México</option>
-                  <option value="Coahuila">Coahuila</option>
-                  <option value="Colima">Colima</option>
-                  <option value="Durango">Durango</option>
-                  <option value="Estado de México">Estado de México</option>
-                  <option value="Guanajuato">Guanajuato</option>
-                  <option value="Guerrero">Guerrero</option>
-                  <option value="Hidalgo">Hidalgo</option>
-                  <option value="Jalisco">Jalisco</option>
-                  <option value="Michoacán">Michoacán</option>
-                  <option value="Morelos">Morelos</option>
-                  <option value="Nayarit">Nayarit</option>
-                  <option value="Nuevo León">Nuevo León</option>
-                  <option value="Oaxaca">Oaxaca</option>
-                  <option value="Puebla">Puebla</option>
-                  <option value="Querétaro">Querétaro</option>
-                  <option value="Quintana Roo">Quintana Roo</option>
-                  <option value="San Luis Potosí">San Luis Potosí</option>
-                  <option value="Sinaloa">Sinaloa</option>
-                  <option value="Sonora">Sonora</option>
-                  <option value="Tabasco">Tabasco</option>
-                  <option value="Tamaulipas">Tamaulipas</option>
-                  <option value="Tlaxcala">Tlaxcala</option>
-                  <option value="Veracruz">Veracruz</option>
-                  <option value="Yucatán">Yucatán</option>
-                  <option value="Zacatecas">Zacatecas</option>
+                  <option value="B, D, G, H, J, L, N, P, R, T, V, X, Z, AB, AD, AF, AH, AJ, AL, AN, AP, AR, AT, AV, AX, AZ, BB, BD, BF, BH, BJ, BL">Todos los estados</option>
+                  <option value="B">Aguascalientes</option>
+                  <option value="D">Baja California</option>
+                  <option value="F">Baja California Sur</option>
+                  <option value="H">Campeche</option>
+                  <option value="N">Chiapas</option>
+                  <option value="P">Chihuahua</option>
+                  <option value="R">Ciudad de México</option>
+                  <option value="J">Coahuila</option>
+                  <option value="L">Colima</option>
+                  <option value="T">Durango</option>
+                  <option value="AD">Estado de México</option>
+                  <option value="V">Guanajuato</option>
+                  <option value="X">Guerrero</option>
+                  <option value="Z">Hidalgo</option>
+                  <option value="AB">Jalisco</option>
+                  <option value="AF">Michoacán</option>
+                  <option value="AH">Morelos</option>
+                  <option value="AJ">Nayarit</option>
+                  <option value="AL">Nuevo León</option>
+                  <option value="AN">Oaxaca</option>
+                  <option value="AP">Puebla</option>
+                  <option value="AR">Querétaro</option>
+                  <option value="AT">Quintana Roo</option>
+                  <option value="AW">San Luis Potosí</option>
+                  <option value="AX">Sinaloa</option>
+                  <option value="AZ">Sonora</option>
+                  <option value="BB">Tabasco</option>
+                  <option value="BD">Tamaulipas</option>
+                  <option value="BF">Tlaxcala</option>
+                  <option value="BH">Veracruz</option>
+                  <option value="BJ">Yucatán</option>
+                  <option value="BL">Zacatecas</option>
               </select>
-              <a href="#" id="enlace">Enviar</a>
+              
                 <div id="chartMain">
                   <div id="chart_wrap"></div>
                 </div>
@@ -98,13 +93,6 @@
                 <p>Elige el estado que quieras consultar </p>          
 
              <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <!--   <select name="orden" id="orden" class="custom-select" onchange="Orden()"> 
-                      <option value="no" selected>...</option>
-                      <option value="Ascendente">Ascendente</option>
-                      <option value="Descendente">Descendente</option>
-                    </select>-->
-                  </div>
                       <select class="custom-select" name="estado" id="estado">
                           <option value="no">...</option>
                           <option value="Aguascalientes">Aguascalientes</option>
@@ -144,7 +132,7 @@
 
                 
                 
-                <div id="chart_wrap">
+                <div id="chartMain">
                     <div id="chart">
                 </div>
                 </div>

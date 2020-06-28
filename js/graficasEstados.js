@@ -1,19 +1,18 @@
 'use strict'
 
 google.load('visualization', '1.0', {'packages':['corechart', 'table']});
-//google.load('visualization', '1.0', {'packages':['table']});
 
-var estados_republica = ['Aguascalientes','Baja California','Baja California Sur','Campeche','Coahuila','Colima','Chiapas','Chihuahua','CDMX','Durango','Guanajuato','Guerrero','Hidalgo','Jalisco','Estado de México','Michoacán','Morelos','Nayarit','Nuevo León','Oaxaca','Puebla','Querétaro','Quintana Roo','San Luis Potosí','Sinaloa','Sonora','Tabasco','Tamaulipas','Tlaxcala','Veracruz','Yucatán','Zacatecas'];
-var datos_estados = new Array();
-var contador = 0;
 google.setOnLoadCallback(drawSheetName1);
-
-function drawSheetName1()
+function drawSheetName1(nuevaConsulta)
 {
-    let queri = new google.visualization.Query(
+    while(nuevaConsulta == null)
+    {
+        nuevaConsulta = "select A, B, D, G, H, J, L, N, P, R, T, V, X, Z, AB, AD, AF, AH, AJ, AL, AN, AP, AR, AT, AV, AX, AZ, BB, BD, BF, BH, BJ, BL"
+    }
+    var queri = new google.visualization.Query(
     'https://docs.google.com/spreadsheets/d/1n65j8P31lIdU5YV7n-VbKhCTra8csTlGLUbnd8Q4Z_0/gviz/tq?');
     
-    queri.setQuery("select A, B, D, G, H, J, L, N, P, R, T, V, X, Z, AB, AD, AF, AH, AJ, AL, AN, AP, AR, AT, AV, AX, AZ, BB, BD, BF, BH, BJ, BL");
+    queri.setQuery(nuevaConsulta);
 
     queri.send(handleSampleDataQueryResponseGral1);
 }
@@ -31,11 +30,6 @@ function handleSampleDataQueryResponseGral1(response) {
     };
     let chartMain = new google.visualization.LineChart(document.getElementById('chartMain'));
     chartMain.draw(data, opt);   
-    //for(var i = 0; i < 33 ; i++)
-    {
-        DatosEstados(estados_republica[0]);
-    }
-    console.log(datos_estados)
 }
 
 google.setOnLoadCallback(drawSheetName);
@@ -365,11 +359,29 @@ function buscarEstado(est){
     }
 }
 
-const checkEstados = document.querySelector("#checkEstado")
 
 $("#checkEstado").on('change', function() {
     var val = $(this).val();
     // te muestra un array de todos los seleccionados
     console.log(val);
+    if(val.length == 0)
+    {
+        val = ["B, D, G, H, J, L, N, P, R, T, V, X, Z, AB, AD, AF, AH, AJ, AL, AN, AP, AR, AT, AV, AX, AZ, BB, BD, BF, BH, BJ, BL"];
+        obtenerEstados(val);
+    }
+    else{
+        obtenerEstados(val);
+    }
+    
   });
 
+  
+
+function obtenerEstados(val)
+{
+    let nuevaConsulta = "select A,"
+    nuevaConsulta += val.join();
+    drawSheetName1(nuevaConsulta);   
+    console.log(nuevaConsulta);
+     
+}
