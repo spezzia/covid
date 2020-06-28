@@ -2,8 +2,8 @@
 
 google.load('visualization', '1.0', {'packages':['corechart', 'table']});
 
-google.setOnLoadCallback(drawSheetName1);
-function drawSheetName1(nuevaConsulta)
+google.setOnLoadCallback(drawSheetNameGraficaPrincipalEstados);
+function drawSheetNameGraficaPrincipalEstados(nuevaConsulta)
 {
     while(nuevaConsulta == null)
     {
@@ -14,35 +14,33 @@ function drawSheetName1(nuevaConsulta)
     
     queri.setQuery(nuevaConsulta);
 
-    queri.send(handleSampleDataQueryResponseGral1);
+    queri.send(handleSampleDataQueryResponseGralGraficaPrincipalEstados);
 }
 
-function handleSampleDataQueryResponseGral1(response) {
+function handleSampleDataQueryResponseGralGraficaPrincipalEstados(response) {
     if (response.isError()) {
     alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;}
-
     let  data = response.getDataTable();
-    //console.log(data);
     let opt = {
         width: '100%',
-      height: '400px'
+        height: '400px'
     };
     let chartMain = new google.visualization.LineChart(document.getElementById('chartMain'));
     chartMain.draw(data, opt);   
 }
 
-google.setOnLoadCallback(drawSheetName);
+google.setOnLoadCallback(drawSheetNameGraficaEstadoIndividual);
 var cuerito;
-function drawSheetName(cuerito) {
+function drawSheetNameGraficaEstadoIndividual(cuerito) {
     var query = new google.visualization.Query(
     'https://docs.google.com/spreadsheets/d/1n65j8P31lIdU5YV7n-VbKhCTra8csTlGLUbnd8Q4Z_0/gviz/tq?');
     
     query.setQuery(cuerito);
-    query.send(handleSampleDataQueryResponse);
+    query.send(handleSampleDataQueryResponseGraficaEstadoIndividual);
 }
 
-function handleSampleDataQueryResponse(response) {
+function handleSampleDataQueryResponseGraficaEstadoIndividual(response) {
     if (response.isError()) {
     alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
     return;}
@@ -50,8 +48,6 @@ function handleSampleDataQueryResponse(response) {
     var data = response.getDataTable();
     data.Kf[1].label = "Contagios";
     data.Kf[2].label = "Decesos";
-
-    //console.log(data.Kf[1].label);
 
     var options = {
         width: '100%',
@@ -61,39 +57,17 @@ function handleSampleDataQueryResponse(response) {
     chart.draw(data, options);   
 }
 
-google.setOnLoadCallback(drawSheetNameT);
+google.setOnLoadCallback(drawSheetNameTablaEstado);
 var cueritoTabla;
-function casosconfirmadosestados(cueritoTabla) {
+
+function drawSheetNameTablaEstado(cueritoTabla) {
     var query = new google.visualization.Query(
     'https://docs.google.com/spreadsheets/d/1t8yE6uEjGOxPyVljYUkDrPv_d7sVdCaEMg0L-9UM4D0/edit#gid=0');
     query.setQuery(cueritoTabla);
-    return query.send(datosconfirmados);
+    query.send(handleSampleDataQueryResponseTablaEstado);
   }
 
-  function datosconfirmados(response) {
-    if (response.isError()) {
-      alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
-      return;
-    }
-    var data = response.getDataTable();
-    datos_estados.push([data.hg[0].c[0].v,estados_republica[contador]]);
-    contador = contador + 1; 
-    if(contador < 33)
-    {
-        DatosEstados(estados_republica[contador]);
-    }
-  }
-
-
-
-function drawSheetNameT(cueritoTabla) {
-    var query = new google.visualization.Query(
-    'https://docs.google.com/spreadsheets/d/1t8yE6uEjGOxPyVljYUkDrPv_d7sVdCaEMg0L-9UM4D0/edit#gid=0');
-    query.setQuery(cueritoTabla);
-    query.send(handleSampleDataQueryResponseT);
-  }
-
-  function handleSampleDataQueryResponseT(response) {
+function handleSampleDataQueryResponseTablaEstado(response) {
     if (response.isError()) {
       alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
       return;
@@ -167,204 +141,204 @@ function buscarEstado(est){
     case 'Aguascalientes':
         cuerito = "select A, B, C";
         cueritoTabla = "select A,B,C";
-        drawSheetName(cuerito);
-        drawSheetNameT(cueritoTabla);
+        drawSheetNameGraficaEstadoIndividual(cuerito);
+        drawSheetNameTablaEstado(cueritoTabla);
         break;
     case 'Baja California':
         cuerito = "select A, D, E";
         cueritoTabla = "select D,E,F";
-        drawSheetName(cuerito);
-        drawSheetNameT(cueritoTabla);
+        drawSheetNameGraficaEstadoIndividual(cuerito);
+        drawSheetNameTablaEstado(cueritoTabla);
         break;
     case 'Baja California Sur':
         cuerito = "select A, F, G";
         cueritoTabla = "select G,H,I";
-        drawSheetName(cuerito);
-        drawSheetNameT(cueritoTabla);
+        drawSheetNameGraficaEstadoIndividual(cuerito);
+        drawSheetNameTablaEstado(cueritoTabla);
         break;    
     case 'Campeche':
         cuerito = "select A, H, I";
         cueritoTabla = "select J,K,L";
-        drawSheetName(cuerito);
-        drawSheetNameT(cueritoTabla);
+        drawSheetNameGraficaEstadoIndividual(cuerito);
+        drawSheetNameTablaEstado(cueritoTabla);
         break;
     case 'Coahuila':
         cuerito = "select A, J, K";
         cueritoTabla = "select M,N,O";
-        drawSheetName(cuerito);
-        drawSheetNameT(cueritoTabla);
+        drawSheetNameGraficaEstadoIndividual(cuerito);
+        drawSheetNameTablaEstado(cueritoTabla);
         break;
     case 'Colima':  
         cuerito = "select A, L, M";
         cueritoTabla = "select P,Q,R";
-        drawSheetName(cuerito);
-        drawSheetNameT(cueritoTabla);
+        drawSheetNameGraficaEstadoIndividual(cuerito);
+        drawSheetNameTablaEstado(cueritoTabla);
         break;
     case 'Chiapas':
         cuerito = "select A, N, O";
         cueritoTabla = "select S,T,U";
-        drawSheetName(cuerito);
-        drawSheetNameT(cueritoTabla);
+        drawSheetNameGraficaEstadoIndividual(cuerito);
+        drawSheetNameTablaEstado(cueritoTabla);
         break;
     case 'Chihuahua':
         cuerito = "select A, P, Q";
         cueritoTabla = "select V,W,X";
-        drawSheetName(cuerito);
-        drawSheetNameT(cueritoTabla);
+        drawSheetNameGraficaEstadoIndividual(cuerito);
+        drawSheetNameTablaEstado(cueritoTabla);
         break;
     case 'CDMX':
         cuerito = "select A, R, S";
         cueritoTabla = "select Y,Z,AA";
-        drawSheetName(cuerito);
-        drawSheetNameT(cueritoTabla);
+        drawSheetNameGraficaEstadoIndividual(cuerito);
+        drawSheetNameTablaEstado(cueritoTabla);
         break;
     case 'Durango':
         cuerito = "select A, T, U";
         cueritoTabla = "select AB,AC,AD";
-        drawSheetName(cuerito);
-        drawSheetNameT(cueritoTabla);
+        drawSheetNameGraficaEstadoIndividual(cuerito);
+        drawSheetNameTablaEstado(cueritoTabla);
         break;
     case 'Guanajuato':
         cuerito = "select A, V, W";
         cueritoTabla = "select AE,AF,AG";
-        drawSheetName(cuerito);
-        drawSheetNameT(cueritoTabla);
+        drawSheetNameGraficaEstadoIndividual(cuerito);
+        drawSheetNameTablaEstado(cueritoTabla);
         break;
     case 'Guerrero':
         cuerito = "select A, X, Y";
         cueritoTabla = "select AH,AI,AJ";
-        drawSheetName(cuerito);
-        drawSheetNameT(cueritoTabla);
+        drawSheetNameGraficaEstadoIndividual(cuerito);
+        drawSheetNameTablaEstado(cueritoTabla);
         break;
     case 'Hidalgo':
         cuerito = "select A, Z, AA";
         cueritoTabla = "select AK,AL,AM";
-        drawSheetName(cuerito);
-        drawSheetNameT(cueritoTabla);
+        drawSheetNameGraficaEstadoIndividual(cuerito);
+        drawSheetNameTablaEstado(cueritoTabla);
         break;
     case 'Jalisco':
         cuerito = "select A, AB, AC";
         cueritoTabla = "select AN,AO,AP";
-        drawSheetName(cuerito);
-        drawSheetNameT(cueritoTabla);
+        drawSheetNameGraficaEstadoIndividual(cuerito);
+        drawSheetNameTablaEstado(cueritoTabla);
         break;
     case 'Estado de México':
         cuerito = "select A, AD, AE";
         cueritoTabla = "select AQ,AR,AS";
-        drawSheetName(cuerito);
-        drawSheetNameT(cueritoTabla);
+        drawSheetNameGraficaEstadoIndividual(cuerito);
+        drawSheetNameTablaEstado(cueritoTabla);
         break;
     case 'Michoacán':
         cuerito = "select A, AF, AG";
         cueritoTabla = "select AT,AU,AV";
-        drawSheetName(cuerito);
-        drawSheetNameT(cueritoTabla);
+        drawSheetNameGraficaEstadoIndividual(cuerito);
+        drawSheetNameTablaEstado(cueritoTabla);
         break;
     case 'Morelos':
         cuerito = "select A, AH, AI";
         cueritoTabla = "select AW,AX,AY";
-        drawSheetName(cuerito);
-        drawSheetNameT(cueritoTabla);
+        drawSheetNameGraficaEstadoIndividual(cuerito);
+        drawSheetNameTablaEstado(cueritoTabla);
         break;
     case 'Nayarit':
         cuerito = "select A, AJ, AK";
         cueritoTabla = "select AZ,BA,BB";
-        drawSheetName(cuerito);
-        drawSheetNameT(cueritoTabla);
+        drawSheetNameGraficaEstadoIndividual(cuerito);
+        drawSheetNameTablaEstado(cueritoTabla);
         break;
     case 'Nuevo León':
         cuerito = "select A, AL, AM";
         cueritoTabla = "select BC,BD,BE";
-        drawSheetName(cuerito);
-        drawSheetNameT(cueritoTabla);
+        drawSheetNameGraficaEstadoIndividual(cuerito);
+        drawSheetNameTablaEstado(cueritoTabla);
         break;                                 
     case 'Oaxaca':
         cuerito = "select A, AN, AO";
         cueritoTabla = "select BF,BG,BH";
         drawSheetName(cuerito);
-        drawSheetNameT(cueritoTabla);
+        drawSheetNameTablaEstado(cueritoTabla);
         break;
     case 'Puebla':
         cuerito = "select A, AP, AQ";
         cueritoTabla = "select BI,BJ,BK";
-        drawSheetName(cuerito);
-        drawSheetNameT(cueritoTabla);
+        drawSheetNameGraficaEstadoIndividual(cuerito);
+        drawSheetNameTablaEstado(cueritoTabla);
         break;
     case 'Querétaro':
         cuerito = "select A, AR, AS";
         cueritoTabla = "select BL,BM,BN";
-        drawSheetName(cuerito);
-        drawSheetNameT(cueritoTabla);
+        drawSheetNameGraficaEstadoIndividual(cuerito);
+        drawSheetNameTablaEstado(cueritoTabla);
         break;
     case 'Quintana Roo':
         cuerito = "select A, AT, AU";
         cueritoTabla = "select BO,BP,BQ";
-        drawSheetName(cuerito);
-        drawSheetNameT(cueritoTabla);
+        drawSheetNameGraficaEstadoIndividual(cuerito);
+        drawSheetNameTablaEstado(cueritoTabla);
         break;
     case 'San Luis Potosí':
         cuerito = "select A, AV, AW";
         cueritoTabla = "select BR,BS,BT";
-        drawSheetName(cuerito);
-        drawSheetNameT(cueritoTabla);
+        drawSheetNameGraficaEstadoIndividual(cuerito);
+        drawSheetNameTablaEstado(cueritoTabla);
         break;
     case 'Sinaloa':
         cuerito = "select A, AX, AY";
         cueritoTabla = "select BU,BV,BW";
-        drawSheetName(cuerito);
-        drawSheetNameT(cueritoTabla);
+        drawSheetNameGraficaEstadoIndividual(cuerito);
+        drawSheetNameTablaEstado(cueritoTabla);
         break;
     case 'Sonora':
         cuerito = "select A, AZ, BA";
         cueritoTabla = "select BX,BY,BZ";
-        drawSheetName(cuerito);
-        drawSheetNameT(cueritoTabla);
+        drawSheetNameGraficaEstadoIndividual(cuerito);
+        drawSheetNameTablaEstado(cueritoTabla);
         break;
     case 'Tabasco':
         cuerito = "select A, BB, BC";
         cueritoTabla = "select CA,CB,CC";
-        drawSheetName(cuerito);
-        drawSheetNameT(cueritoTabla);
+        drawSheetNameGraficaEstadoIndividual(cuerito);
+        drawSheetNameTablaEstado(cueritoTabla);
         break;
     case 'Tamaulipas':
         cuerito = "select A, BD, BE";
         cueritoTabla = "select CD,CE,CF";
-        drawSheetName(cuerito);
-        drawSheetNameT(cueritoTabla);
+        drawSheetNameGraficaEstadoIndividual(cuerito);
+        drawSheetNameTablaEstado(cueritoTabla);
         break;
     case 'Tlaxcala':
         cuerito = "select A, BF, BG";
         cueritoTabla = "select CG,CH,CI";
-        drawSheetName(cuerito);
-        drawSheetNameT(cueritoTabla);
+        drawSheetNameGraficaEstadoIndividual(cuerito);
+        drawSheetNameTablaEstado(cueritoTabla);
         break;
     case 'Veracruz':
         cuerito = "select A, BH, BI";
         cueritoTabla = "select CJ,CK,CL";
-        drawSheetName(cuerito);
-        drawSheetNameT(cueritoTabla);
+        drawSheetNameGraficaEstadoIndividual(cuerito);
+        drawSheetNameTablaEstado(cueritoTabla);
         break;
     case 'Yucatán':
         cuerito = "select A, BJ, BK";
         cueritoTabla = "select CM,CN,CO";
-        drawSheetName(cuerito);
-        drawSheetNameT(cueritoTabla);
+        drawSheetNameGraficaEstadoIndividual(cuerito);
+        drawSheetNameTablaEstado(cueritoTabla);
         break;
     case 'Zacatecas':
         cuerito = "select A, BL, BM";
         cueritoTabla = "select CP,CQ,CR";
-        drawSheetName(cuerito);
-        drawSheetNameT(cueritoTabla);
+        drawSheetNameGraficaEstadoIndividual(cuerito);
+        drawSheetNameTablaEstado(cueritoTabla);
         break;
     }
 }
 
-
+/**Función que genera el array de los estados seleccionados */
 $("#checkEstado").on('change', function() {
     var val = $(this).val();
     // te muestra un array de todos los seleccionados
     console.log(val);
-    if(val.length == 0)
+    if(val.length == 0)/**Si el array está vacío se le propocionara el array para graficar todos los estados */
     {
         val = ["B, D, G, H, J, L, N, P, R, T, V, X, Z, AB, AD, AF, AH, AJ, AL, AN, AP, AR, AT, AV, AX, AZ, BB, BD, BF, BH, BJ, BL"];
         obtenerEstados(val);
@@ -376,7 +350,7 @@ $("#checkEstado").on('change', function() {
   });
 
   
-
+/**"Función que genera el query para cargar el grafico dependiendo de que eatados hayan sido seleccionados" */
 function obtenerEstados(val)
 {
     let nuevaConsulta = "select A,"
