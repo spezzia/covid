@@ -351,11 +351,12 @@ $("#checkEstado").on('change', function() {
 
   
 /**"Función que genera el query para cargar el grafico dependiendo de que eatados hayan sido seleccionados" */
+
 function obtenerEstados(val)
 {
     let nuevaConsulta = "select A,"
     nuevaConsulta += val.join();
-    drawSheetName1(nuevaConsulta);   
+    drawSheetNameGraficaPrincipalEstados(nuevaConsulta);   
     console.log(nuevaConsulta);
      
 }
