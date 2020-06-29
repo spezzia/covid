@@ -9,10 +9,11 @@
     <link  id="estilo" rel="stylesheet" href="css/estilo.css">
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <meta name="description" content="Sistema Inteligente y Ciberseguridad">
-    <!--<link href="https://fonts.googleapis.com/css2?family=Tinos:wght@700&display=swap" rel="stylesheet">-->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet"> 
     <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/estilos.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
   </head>
 <body>
   <h1 class="text-justify text-center pt-3 text-uppercase ">Sistemas Inteligentes y Ciberseguridad</h1>
@@ -53,11 +54,87 @@
           <div class="row pt-5">
               <div class="col-md-9 " style=" border-right: 3px solid#2980B9  ;">
                 <h4>Contagios confirmados</h4>
+
+                <select name="checkEstado" id="checkEstado" class="selectpicker" multiple>
+                  <!--<option value="">Todos los estados</option>-->
+                  <option value="B">Aguascalientes</option>
+                  <option value="D">Baja California</option>
+                  <option value="F">Baja California Sur</option>
+                  <option value="H">Campeche</option>
+                  <option value="N">Chiapas</option>
+                  <option value="P">Chihuahua</option>
+                  <option value="R">Ciudad de México</option>
+                  <option value="J">Coahuila</option>
+                  <option value="L">Colima</option>
+                  <option value="T">Durango</option>
+                  <option value="AD">Estado de México</option>
+                  <option value="V">Guanajuato</option>
+                  <option value="X">Guerrero</option>
+                  <option value="Z">Hidalgo</option>
+                  <option value="AB">Jalisco</option>
+                  <option value="AF">Michoacán</option>
+                  <option value="AH">Morelos</option>
+                  <option value="AJ">Nayarit</option>
+                  <option value="AL">Nuevo León</option>
+                  <option value="AN">Oaxaca</option>
+                  <option value="AP">Puebla</option>
+                  <option value="AR">Querétaro</option>
+                  <option value="AT">Quintana Roo</option>
+                  <option value="AW">San Luis Potosí</option>
+                  <option value="AX">Sinaloa</option>
+                  <option value="AZ">Sonora</option>
+                  <option value="BB">Tabasco</option>
+                  <option value="BD">Tamaulipas</option>
+                  <option value="BF">Tlaxcala</option>
+                  <option value="BH">Veracruz</option>
+                  <option value="BJ">Yucatán</option>
+                  <option value="BL">Zacatecas</option>
+                </select>
+                
                 <div id="chartContagios">
                 </div>
+
                 <h4>Decesos</h4>
+
+                <select name="checkDecesos" id="checkDecesos" class="selectpicker" multiple>
+                  <!--<option value="">Todos los estados</option>-->
+                  <option value="C">Aguascalientes</option>
+                  <option value="E">Baja California</option>
+                  <option value="G">Baja California Sur</option>
+                  <option value="I">Campeche</option>
+                  <option value="O">Chiapas</option>
+                  <option value="Q">Chihuahua</option>
+                  <option value="S">Ciudad de México</option>
+                  <option value="K">Coahuila</option>
+                  <option value="M">Colima</option>
+                  <option value="U">Durango</option>
+                  <option value="AE">Estado de México</option>
+                  <option value="W">Guanajuato</option>
+                  <option value="Y">Guerrero</option>
+                  <option value="AA">Hidalgo</option>
+                  <option value="AC">Jalisco</option>
+                  <option value="AG">Michoacán</option>
+                  <option value="AI">Morelos</option>
+                  <option value="AK">Nayarit</option>
+                  <option value="AM">Nuevo León</option>
+                  <option value="AO">Oaxaca</option>
+                  <option value="AQ">Puebla</option>
+                  <option value="AS">Querétaro</option>
+                  <option value="AU">Quintana Roo</option>
+                  <option value="AW">San Luis Potosí</option>
+                  <option value="AY">Sinaloa</option>
+                  <option value="BA">Sonora</option>
+                  <option value="BC">Tabasco</option>
+                  <option value="BE">Tamaulipas</option>
+                  <option value="BG">Tlaxcala</option>
+                  <option value="BI">Veracruz</option>
+                  <option value="BK">Yucatán</option>
+                  <option value="BM">Zacatecas</option>
+                </select>
+
                 <div id="chartMuertes"></div>
-              </div>
+                </div>
+                
               <div class="col-md-3">
                 <h4 class="pt-3 font-weight-bold">Últimas noticias:</h4>
                     <div class="overflow-auto">
@@ -115,25 +192,7 @@
   <!-- Menu Toggle Script -->
 
   <script src="js/main.js"></script>
-
-    <!--<script>
-        var noche = false;
-        function modonoche()
-        {
-            if(noche == true)
-            {
-                noche = !noche;
-                let style = document.getElementById("estilo");
-                style.setAttribute('href',"css/estilo.css");
-            }
-            else
-            {
-                noche = !noche;
-                let style = document.getElementById("estilo");
-                style.setAttribute('href',"css/estilonocturno.css");
-            }
-        }
-    </script>-->
-    <script type="text/javascript" src="js/graficaMex.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+  <script type="text/javascript" src="js/graficaMex.js"></script>
 </body>
 </html>
