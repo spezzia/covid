@@ -2,6 +2,9 @@
 
 google.load('visualization', '1.0', {'packages':['corechart', 'table']});
 
+var datos_estados = new Array();
+var casos_totales = 0;
+
 google.setOnLoadCallback(drawSheetNameGraficaPrincipalEstados);
 function drawSheetNameGraficaPrincipalEstados(nuevaConsulta)
 {
@@ -74,9 +77,108 @@ function handleSampleDataQueryResponseTablaEstado(response) {
     }
 
     var data = response.getDataTable();
-    console.log(data);
-    console.log(data.hg[0].c[1]);
-    console.log(data.hg[0].c[1].v);
+
+    var div_ord = document.getElementById('orden');
+    console.log(div_ord.firstChild);
+    div_ord.removeChild(div_ord.firstChild);
+    var select = document.createElement('select');
+    select.setAttribute('class','custom-select');
+    select.setAttribute('id','ordenar');
+    select.setAttribute('name','ordenar');
+    var op = ['Ordenar','Ascendente','Descendente'];
+    for(var i = 0 ; i < op.length; i++)
+    {
+        var opt = document.createElement('option');
+        opt.setAttribute('vale',op[i]);
+        var tx = document.createTextNode(op[i]);
+        opt.appendChild(tx);
+        select.appendChild(opt);
+    }
+
+    div_ord.appendChild(select);
+
+    var div = document.getElementById('tablaMun');
+    var tablaanterior = div.firstChild;
+    div.removeChild(tablaanterior);
+    var tabla = document.createElement('table');
+    tabla.setAttribute('class','table');
+    tabla.setAttribute('id','municipios');
+    var Ttabla = document.createElement('thead');
+    var trhead = document.createElement('tr');
+    var titulos = new Array();
+    for(var i = 0; i < 3 ; i++)
+    {
+        var title = document.createElement('th');
+        title.setAttribute('scope',"col");
+        var text = document.createTextNode(data.Kf[i].label);
+        titulos.push(data.Kf[i].label);
+        title.appendChild(text);
+        trhead.appendChild(title);
+    }
+    datos_estados.push(titulos);
+    Ttabla.appendChild(trhead);
+    tabla.appendChild(Ttabla);
+
+    var tbody = document.createElement('tbody');
+
+    var i = 0;
+    while(data.hg[i].c[1] != null)
+    {
+        var trhead = document.createElement('tr');
+        var fila = new Array();
+        for(var e = 0; e < 3 ; e++)
+        {
+            var td = document.createElement('td');
+            if(data.hg[i].c[e].v == null)
+            {
+                var text = document.createTextNode('');
+            }
+            else
+            {
+                var text = document.createTextNode(data.hg[i].c[e].v );
+                fila.push(data.hg[i].c[e].v );  
+            }
+            if(i == 0 && e == 2)
+            {
+                casos_totales = data.hg[i].c[e].v;
+            }
+            td.appendChild(text);
+            trhead.appendChild(td);
+        }
+        datos_estados.push(fila);
+        tbody.appendChild(trhead);
+        i++;
+    }
+    tabla.appendChild(tbody);
+
+    div.appendChild(tabla);
+
+
+    //var chart = new google.visualization.Table(document.getElementById('tablaMun'));
+    //chart.draw(data, { height: 250 });
+    const ordenar = document.querySelector("#ordenar");
+    ordenar.addEventListener('change', (event)=>{
+    var est = `${event.target.value}`;
+    console.log(datos_estados);
+    if(est == "Ascendente")
+    {
+        datos_estados.sort(function(a, b){return a[1]-b[1]});
+        console.log(datos_estados);
+        ordenar_tabla();
+
+    }
+    if(est == "Descendente")
+    {   
+        datos_estados.sort(function(a, b){return b[1]-a[1]});
+        console.log(datos_estados);
+        ordenar_tabla();
+    }
+    });
+  }
+
+
+  function ordenar_tabla()
+  {
     var div = document.getElementById('tablaMun');
     var tablaanterior = div.firstChild;
     div.removeChild(tablaanterior);
@@ -89,7 +191,7 @@ function handleSampleDataQueryResponseTablaEstado(response) {
     {
         var title = document.createElement('th');
         title.setAttribute('scope',"col");
-        var text = document.createTextNode(data.Kf[i].label);
+        var text = document.createTextNode(datos_estados[0][i]);
         title.appendChild(text);
         trhead.appendChild(title);
     }
@@ -98,20 +200,28 @@ function handleSampleDataQueryResponseTablaEstado(response) {
 
     var tbody = document.createElement('tbody');
 
-    var i = 0;
-    while(data.hg[i].c[1] != null)
+    var i = 1;
+    while(datos_estados[i] != null)
     {
         var trhead = document.createElement('tr');
         for(var e = 0; e < 3 ; e++)
         {
             var td = document.createElement('td');
-            if(data.hg[i].c[e].v == null)
+            if(datos_estados[i][e] == null)
             {
                 var text = document.createTextNode('');
             }
             else
             {
-                var text = document.createTextNode(data.hg[i].c[e].v );
+                var text = document.createTextNode(datos_estados[i][e]);
+            }
+            if(i == 1 && e == 2)
+            {
+                var text =  document.createTextNode(casos_totales);
+            }
+            if(e == 2 && datos_estados[i][e] != null )
+            {
+                var text = document.createTextNode('');   
             }
             td.appendChild(text);
             trhead.appendChild(td);
@@ -122,12 +232,10 @@ function handleSampleDataQueryResponseTablaEstado(response) {
     tabla.appendChild(tbody);
 
     div.appendChild(tabla);
-
-
-    //var chart = new google.visualization.Table(document.getElementById('tablaMun'));
-    //chart.draw(data, { height: 250 });
   }
-  
+
+
+
 
 const estados = document.querySelector("#estado");
 estados.addEventListener('change', (event)=>{
