@@ -79,7 +79,7 @@ function handleSampleDataQueryResponseT(response) {
         for(var e = 0; e < 3 ; e++)
         {
             var td = document.createElement('td');
-            if(data.hg[i].c[e].v == null)
+            if(data.hg[i].c[e] == null)
             {
                 var text = document.createTextNode('');
             }
