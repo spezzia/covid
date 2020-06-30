@@ -36,7 +36,10 @@ nav label
 {
   background-color: white;
 }
-
+p.text-justify.text-center{
+  color: red;
+  font-weight: bold;
+}
 
 .switch {
   position: relative;
