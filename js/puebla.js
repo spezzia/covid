@@ -27,9 +27,9 @@ function handleSampleDataQueryResponse(response) {
       height: '100%',
     };
     var data = response.getDataTable();
-    data.Kf[1].label = "Contagios";
-    data.Kf[2].label = "Decesos";
-    console.log(data.Kf[1].label);
+    data.If[1].label = "Contagios";
+    data.If[2].label = "Decesos";
+    console.log(data.If[1].label);
     var chart = new google.visualization.LineChart(document.getElementById('chartPuebla'));
     chart.draw(data, options);
 }
@@ -51,8 +51,8 @@ function handleSampleDataQueryResponseT(response) {
 
     var data = response.getDataTable();
     console.log(data);
-    console.log(data.hg[0].c[1]);
-    console.log(data.hg[0].c[1].v);
+    console.log(data.fg[0].c[1]);
+    console.log(data.fg[0].c[1].v);
 
     var div_ord = document.getElementById('orden');
     var select = document.createElement('select');
@@ -84,8 +84,8 @@ function handleSampleDataQueryResponseT(response) {
     {
         var title = document.createElement('th');
         title.setAttribute('scope',"col");
-       var text = document.createTextNode(data.Kf[i].label);
-       titulos.push(data.Kf[i].label);
+       var text = document.createTextNode(data.If[i].label);
+       titulos.push(data.If[i].label);
         title.appendChild(text);
         trhead.appendChild(title);
     }
@@ -96,25 +96,25 @@ function handleSampleDataQueryResponseT(response) {
     var tbody = document.createElement('tbody');
 
     var i = 0;
-    while(data.hg[i] != null)
+    while(data.fg[i] != null)
     {
         var trhead = document.createElement('tr');
         var fila = new Array();
         for(var e = 0; e < 3 ; e++)
         {
             var td = document.createElement('td');
-            if(data.hg[i].c[e].v == null)
+            if(data.fg[i].c[e].v == null)
             {
                 var text = document.createTextNode('');
             }
             else
             {
-                var text = document.createTextNode(data.hg[i].c[e].v );
-                fila.push(data.hg[i].c[e].v );  
+                var text = document.createTextNode(data.fg[i].c[e].v );
+                fila.push(data.fg[i].c[e].v );  
             }
             if(i == 0 && e == 2)
             {
-                casos_totales = data.hg[i].c[e].v;
+                casos_totales = data.fg[i].c[e].v;
             }
             td.appendChild(text);
             trhead.appendChild(td);
