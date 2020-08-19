@@ -49,8 +49,8 @@ function handleSampleDataQueryResponseGraficaEstadoIndividual(response) {
     return;}
 
     var data = response.getDataTable();
-    data.Kf[1].label = "Contagios";
-    data.Kf[2].label = "Decesos";
+    data.If[1].label = "Contagios";
+    data.If[2].label = "Decesos";
 
     var options = {
         width: '100%',
@@ -110,8 +110,8 @@ function handleSampleDataQueryResponseTablaEstado(response) {
     {
         var title = document.createElement('th');
         title.setAttribute('scope',"col");
-        var text = document.createTextNode(data.Kf[i].label);
-        titulos.push(data.Kf[i].label);
+        var text = document.createTextNode(data.If[i].label);
+        titulos.push(data.If[i].label);
         title.appendChild(text);
         trhead.appendChild(title);
     }
