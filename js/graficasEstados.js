@@ -122,25 +122,25 @@ function handleSampleDataQueryResponseTablaEstado(response) {
     var tbody = document.createElement('tbody');
 
     var i = 0;
-    while(data.hg[i].c[1] != null)
+    while(data.fg[i].c[1] != null)
     {
         var trhead = document.createElement('tr');
         var fila = new Array();
         for(var e = 0; e < 3 ; e++)
         {
             var td = document.createElement('td');
-            if(data.hg[i].c[e].v == null)
+            if(data.fg[i].c[e].v == null)
             {
                 var text = document.createTextNode('');
             }
             else
             {
-                var text = document.createTextNode(data.hg[i].c[e].v );
-                fila.push(data.hg[i].c[e].v );  
+                var text = document.createTextNode(data.fg[i].c[e].v );
+                fila.push(data.fg[i].c[e].v );  
             }
             if(i == 0 && e == 2)
             {
-                casos_totales = data.hg[i].c[e].v;
+                casos_totales = data.fg[i].c[e].v;
             }
             td.appendChild(text);
             trhead.appendChild(td);
