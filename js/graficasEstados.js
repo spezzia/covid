@@ -77,6 +77,7 @@ function handleSampleDataQueryResponseTablaEstado(response) {
     }
 
     var data = response.getDataTable();
+    console.log(data);
 
     var div_ord = document.getElementById('orden');
     console.log(div_ord.firstChild);
@@ -122,7 +123,8 @@ function handleSampleDataQueryResponseTablaEstado(response) {
     var tbody = document.createElement('tbody');
 
     var i = 0;
-    while(data.fg[i].c[1] != null)
+    console.log("i: " + i);
+    while(data.fg[i].c[0] != null)
     {
         var trhead = document.createElement('tr');
         var fila = new Array();
