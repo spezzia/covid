@@ -122,6 +122,8 @@ function handleSampleDataQueryResponseTablaEstado(response) {
     var tbody = document.createElement('tbody');
 
     var i = 0;
+    console.log(data);
+    
     while(data.hg[i].c[1] != null)
     {
         var trhead = document.createElement('tr');
